@@ -1,125 +1,121 @@
 package pageobject;
 
+import net.bytebuddy.description.type.TypeDescription;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
 
 public class HomePage extends BasePage {
-    @FindBy(xpath = "//a[contains(@class, 'js_addMessage_btn')]")
-    private WebElement addMessageButton;
 
-    @FindBy(id = "js_addMessage")
-    private WebElement jsAddMessagePopup;
+    @FindBy(xpath = "//a[text()='register']")
+    private WebElement registerLink;
 
-    @FindBy(xpath = "//form[@data-recipient-name='Директору магазина']//input[@name='user_name']")
-    private WebElement userNameInLetterToDirectorPopupInput;
+    @FindBy(xpath = "//a[text()='Sign out']")
+    private WebElement signOutLink;
 
-    @FindBy(xpath = "//form[@data-recipient-name='Директору магазина']//input[@name='user_email']")
-    private WebElement emailInLetterToDirectorPopupInput;
+    @FindBy(xpath = "//button[@id='gh-ug']")
+    private WebElement userMenuBtn;
 
-    @FindBy(xpath = "//form[@data-recipient-name='Директору магазина']//textarea")
-    private WebElement textInLetterToDirectorPopupInput;
+    @FindBy(xpath = "//div[@id='gh-eb-u-o']")
+    private WebElement userMenuPopup;
 
-    @FindBy(xpath = "//form[@data-recipient-name='Директору магазина']//button")
-    private WebElement sendMessageToDirectorButton;
+    @FindBy(xpath = "//a[@id='gh-uid']")
+    private WebElement userMenuLink;
 
-    @FindBy(id = "js_addThanksMessage")
-    private WebElement jsAddThanksMessagePopup;
+    @FindBy(xpath = "//span[@id='gh-ug']//a[text()='Sign in']")
+    private WebElement signInLink;
 
-    @FindBy(xpath = "//div[@id='js_addThanksMessage']//div[contains(@class, 'color-green')]")
-    private WebElement thanksMessage;
+    @FindBy(xpath = "//input[contains(@class, 'gh-tb')]")
+    private WebElement searchInput;
 
-    @FindBy(xpath = "//ul[contains(@class, 'header-top')]//a[text()='Контакты']")
-    private WebElement contactPageLink;
+    @FindBy(xpath = "//a[@class='hl-item__link']")
+    private List<WebElement> clickableProducts;
 
-    @FindBy(xpath = "//span[@class='sidebar-item']")
-    private WebElement sidebarItem;
+    @FindBy(xpath = "//h3[@class='hl-popular-destinations-name' and text()='Korean beauty']")
+    private WebElement koreanBeautyLink;
 
-    @FindBy(xpath = "//ul[contains(@class,'sidebar-list')]//a[contains(@href,'game-zone')]")
-    private WebElement gameZoneLink;
+    @FindBy(xpath = "//li[@class='hl-cat-nav__js-tab']//a[contains(text(), 'Electronics')]")
+    private WebElement electronicsLink;
 
-    @FindBy(xpath = "//form[contains(@class, 'subscribe-form')]//input[@name='name']")
-    private WebElement nameInputInRequestForCorpClientForm;
+    @FindBy(xpath = "//li[@class='hl-cat-nav__js-tab']//a[contains(text(), 'Fashion')]")
+    private WebElement fashionLink;
 
-    @FindBy(xpath = "//form[contains(@class, 'subscribe-form')]//input[@name='email']")
-    private WebElement emailInputInRequestForCorpClientForm;
+    @FindBy(xpath = "//a[@class='hl-item__link']")
+    private List<WebElement> dailyDealsProds;
 
+    @FindBy(xpath = "//button[@id='gh-shop-a']")
+    private WebElement buttonToCategories;
 
-    @FindBy(xpath = "//button[contains(text(), 'Отправить заявку')]")
-    private WebElement sendRequestBtn;
+    @FindBy(xpath = "//div[@id='gh-sbc-o']")
+    private WebElement popupWithCategories;
 
-    @FindBy(id = "modalAlert")
-    private WebElement modalAlert;
-
-    @FindBy(xpath = "//div[contains(@class, 'js_title')]")
-    private WebElement modalAlertTitle;
+    @FindBy(xpath = "//div[@id='gh-sbc-o']//a[contains(@href, 'Collectibles-Art')]")
+    private WebElement collectiblesAndArtLink;
 
     public HomePage(WebDriver driver) {
         super(driver);
     }
 
-    public void clickOnAddMessageButton() {
-        addMessageButton.click();
+    public void openHomePage(String url) {
+        driver.get(url);
     }
 
-    public WebElement getJsAddMessagePopup() {
-        return jsAddMessagePopup;
+    public void clickOnRegisterLink() {
+        registerLink.click();
     }
 
-    public void enterUserNameInLetterToDirectorPopup(String userName) {
-        userNameInLetterToDirectorPopupInput.sendKeys(userName);
+    public void clickOnSignInLink() {
+        signInLink.click();
     }
 
-    public void enterEmailInLetterToDirectorPopup(String email) {
-        emailInLetterToDirectorPopupInput.sendKeys(email);
+    public void clickOnSignOutLink() {
+        signOutLink.click();
     }
 
-    public void enterTextInLetterToDirectorPopup(String text) {
-        textInLetterToDirectorPopupInput.sendKeys(text);
+    public void clickOnUserMenuBtn() {
+        userMenuBtn.click();
     }
 
-    public void sendMessageToDirector() {
-        sendMessageToDirectorButton.click();
+    public WebElement getUserMenuPopup() {
+        return userMenuPopup;
     }
 
-    public WebElement getJsAddThanksMessagePopup() {
-        return jsAddThanksMessagePopup;
+    public void clickOnUserMenuLink() {
+        userMenuLink.click();
     }
 
-    public String getTextOfThanksMessage() {
-        return thanksMessage.getText();
+    public void sendKeysToSearchInput(String searchInputText) {
+        searchInput.sendKeys(searchInputText, Keys.ENTER);
     }
 
-    public void clickOnContactPageLink() {
-        contactPageLink.click();
+    public void clickOnFirstProductFromClickableProducts() {
+        clickableProducts.get(0).click();
     }
 
-    public void clickOnSideBarItem() {
-        sidebarItem.click();
+    public void clickOnKoreanBeautyLink() {
+        koreanBeautyLink.click();
     }
 
-    public void clickOnGameZoneLink() {
-        gameZoneLink.click();
+    public void clickOnElectronicsLink() {
+        electronicsLink.click();
     }
 
-    public void enterNameInRequestForCorpClientForm(String name) {
-        nameInputInRequestForCorpClientForm.sendKeys(name);
+    public void clickOnFirstDailyDealsProduct() {
+        dailyDealsProds.get(2).click();
     }
 
-    public void enterEmailInRequestForCorpClientForm(String email) {
-        emailInputInRequestForCorpClientForm.sendKeys(email);
+    public void clickOnButtonToCategories() {
+        buttonToCategories.click();
     }
 
-    public void clickOnSendRequestBtn() {
-        sendRequestBtn.click();
+    public WebElement getPopupWithCategories() {
+        return popupWithCategories;
     }
 
-    public WebElement getModalAlert() {
-        return modalAlert;
-    }
-
-    public String getModalAlertTitle() {
-        return modalAlertTitle.getText();
+    public void clickOnCollectiblesAndArtLink() {
+        collectiblesAndArtLink.click();
     }
 }
