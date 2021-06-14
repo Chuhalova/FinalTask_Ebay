@@ -26,8 +26,8 @@ public class DefinitionSteps {
     private static final long STANDART_TIME_TO_WAIT = 30;
     private static final String FIRST_NAME_FOR_AUTH = "Pamela";
     private static final String LAST_NAME_FOR_AUTH = "Ward";
-    private static final String EMAIL_FOR_SIGN_UP = "pam.e.l.awar.d.tx@gmail.com";
-    private static final String EMAIL_FOR_SIGN_IN = "p.a.m.e.l.awardtx@gmail.com";
+    private static final String EMAIL_FOR_SIGN_UP = "pame.l.awardt.x@gmail.com";
+    private static final String EMAIL_FOR_SIGN_IN = "p.a.m.elawardtx@gmail.com";
     private static final String PASSWORD_FOR_AUTH = "123$%^QWErty";
     public static final String LOGOUT_H1 = "signed out";
     public static final String LOGOUT_PARAGRAPH = "return to your account to enjoy buying and selling";

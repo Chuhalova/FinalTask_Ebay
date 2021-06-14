@@ -37,7 +37,7 @@ public class ProductsPage extends BasePage {
     }
 
     public void clickOnFirstProduct() {
-        productsLinkedContainers.get(0).click();
+        productsLinkedContainers.get(1).click();
     }
 
     public void clickOnContainer() {
